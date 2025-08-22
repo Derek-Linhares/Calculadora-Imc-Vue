@@ -25,17 +25,17 @@ createApp({
     classificacao() {
       switch (this.faixaAtual) {
         case "Abaixo do peso":
-          return "Você está abaixo do peso.";
+          return "Atenção, você está abaixo do peso."; 
         case "Peso normal":
           return "Parabéns! Você está com peso normal.";
         case "Sobrepeso":
           return "Atenção: você está com sobrepeso.";
         case "Obesidade grau I":
-          return "Você está com obesidade grau I.";
+          return "Atenção! Você está com obesidade grau I. Procure um nutricionista para iniciar uma dieta!";
         case "Obesidade grau II":
-          return "Você está com obesidade grau II.";
+          return "Cuidado! Você está com obesidade grau II. Inicie uma dieta e procure uma academia para se exercitar!";
         case "Obesidade grau III":
-          return "Cuidado! Obesidade grau III.";
+          return "ALERTA! Obesidade grau III. Procure um medico IMEDIATAMENTE";
         default:
           return "";
       }

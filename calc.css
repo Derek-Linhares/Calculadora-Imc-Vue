@@ -183,8 +183,8 @@ table th {
 }
 
 .faixa-abaixo {
-    background: red;
-    color: white;
+    background: yellow;
+    color: #333;
 }
 
 .faixa-normal {
