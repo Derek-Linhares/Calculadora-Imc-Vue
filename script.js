@@ -35,7 +35,7 @@ createApp({
         case "Obesidade grau II":
           return "Cuidado! Você está com obesidade grau II. Inicie uma dieta e procure uma academia para se exercitar!";
         case "Obesidade grau III":
-          return "ALERTA! Obesidade grau III. Procure um medico IMEDIATAMENTE";
+          return "ALERTA! Obesidade grau III. Procure um medico IMEDIATAMENTE.";
         default:
           return "";
       }
