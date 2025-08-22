@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de IMC</title>
+    <link rel="stylesheet" href="./calc.css" />
+    <link rel="shortcut icon" href="./assets/fav.png" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="calc">
+      <div v-if="!mostrarResultado" id="start">
+        <h1>Saúde em Números Calcule Seu IMC</h1>
+        <input
+          type="number"
+          placeholder="Insira sua altura em cm. Exemplo: 175"
+          v-model.number="altura"
+        />
+        <input
+          type="number"
+          placeholder="Insira seu peso em kg. Exemplo: 75"
+          v-model.number="peso"
+        />
+        <button @click="calcular">Calcular</button>
+
+        <div v-if="vazio">Nenhum dos campos deve estar vazio</div>
+      </div>
+
+      <div v-if="mostrarResultado" id="result">
+        <div id="box">
+          <h2>Seu IMC é: {{ imc }}</h2>
+          <h3>{{ classificacao }}</h3>
+
+          <table v-if="imc">
+            <thead>
+              <tr>
+                <th>IMC</th>
+                <th>Classificação</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr :class="{ 'faixa-abaixo': faixaAtual === 'Abaixo do peso' }">
+                <td>Menor que 18,5</td>
+                <td>Abaixo do peso</td>
+              </tr>
+              <tr :class="{ 'faixa-normal': faixaAtual === 'Peso normal' }">
+                <td>18,5 – 24,9</td>
+                <td>Peso normal</td>
+              </tr>
+              <tr :class="{ 'faixa-sobre': faixaAtual === 'Sobrepeso' }">
+                <td>25 – 29,9</td>
+                <td>Sobrepeso</td>
+              </tr>
+              <tr :class="{ 'faixa-ob1': faixaAtual === 'Obesidade grau I' }">
+                <td>30 – 34,9</td>
+                <td>Obesidade grau I</td>
+              </tr>
+              <tr :class="{ 'faixa-ob2': faixaAtual === 'Obesidade grau II' }">
+                <td>35 – 39,9</td>
+                <td>Obesidade grau II</td>
+              </tr>
+              <tr :class="{ 'faixa-ob3': faixaAtual === 'Obesidade grau III' }">
+                <td>Maior ou igual a 40</td>
+                <td>Obesidade grau III</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button id="back" @click="voltar">Voltar</button>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
